@@ -1,0 +1,14 @@
+#! /usr/bin/python3
+
+import webbrowser
+import sys
+import pyperclip
+
+if len(sys.argv) > 1:
+	address = ' '.join(sys.argv[1 : ])
+else:
+	address = pyperclip.paste();
+
+# Strada Universității nr.15, Suceava
+
+webbrowser.open("https://www.google.ro/maps/place/" + address)
