@@ -1,0 +1,25 @@
+#!/usr/bin/bash
+
+# it is very particular
+# it works for y resolution of 1080
+# 0 - includes the second monitor
+
+while [ 1 ]
+do
+	if [ $1 = "0" ]
+	then
+	        args=$(xdotool getmouselocation)
+		xCoord=$(echo $args | grep "x:[0-9]*" -o)
+		yCoord=$(echo $args | grep "y:[0-9]*" -o)
+		echo "$xCoord $yCoord"
+	else
+		args=$(xdotool getmouselocation)
+		yCoord=$(echo $args | grep "y:[0-9]*" -o)
+		yCoord=${yCoord:2}
+		yCoord="$((yCoord - 1080))"
+		yCoord="y:$yCoord"
+		echo "${args/y:[0-9]*/$yCoord}"
+	fi
+        sleep 0.06s
+        clear
+done
