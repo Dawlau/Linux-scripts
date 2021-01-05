@@ -1,0 +1,19 @@
+#! /usr/bin/python3
+
+import sys
+import re
+import PyPDF2
+
+path = sys.argv[1]
+
+with open(path, "rb") as read:
+	pdf = PyPDF2.PdfFileReader(read)
+
+	words = 0
+	for page in range(pdf.getNumPages()):
+		try:
+			words += len(re.split("[^A-Za-z0-9]", pdf.getPage(page).extractText()))
+		except:
+			print("Skipped page: ", page)
+
+	print("Number of words: ", words)
