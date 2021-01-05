@@ -20,3 +20,7 @@ Run this script in the terminal to get live coordinates of your mouse on the scr
 1 - excludes the monitor on top
 
 It is very particular. It works for a setup with 2 monitors one on top of the other, and the y-resolution of the monitor on the top should be 1080 in order for the 1 flag to display correctly the y coordinate.
+
+# countWords_PDF
+
+Run this script by giving it an absolute path to a pdf file and it will write print the files it couldn't process(should not be many at all) and the total number of words in the file(it ignores all non-alpha-numerical characters).
